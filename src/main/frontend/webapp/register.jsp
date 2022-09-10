@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>SwIndia Tours</title>
-    <link rel="shortcut icon" href="resources/img/logo.png" type="image">
+    <link rel="shortcut icon" href="resources/img/logo.png">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 </head>
 <body>
 <header>
@@ -12,6 +14,8 @@
     </hgroup>
     <nav>
         <ul>
+            <li> <a href="index.jsp">home</a> </li>
+            <li><a href="register.jsp">register</a> </li>
             <li><a href="airportpickup_drop.html">Airport pickup & drop</a></li>
             <li><a href="delhi.html">Delhi</a></li>
             <li><a href="punjab.html">Punjab</a></li>
