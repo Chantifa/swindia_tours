@@ -31,13 +31,13 @@ public class BookNowServlet extends HttpServlet {
             User auth = (User) request.getSession().getAttribute("auth");
 
             if (auth != null) {
-                String productId = request.getParameter("id");
+                String tourId = request.getParameter("id");
                 int productQuantity = Integer.parseInt(request.getParameter("quantity"));
                 if (productQuantity <= 0) {
                     productQuantity = 1;
                 }
                 Booking bookingModel = new Booking();
-                bookingModel.setId(Integer.parseInt(productId));
+                bookingModel.setId(Integer.parseInt(tourId));
                 bookingModel.setUid(auth.getId());
                 bookingModel.setQunatity(productQuantity);
                 bookingModel.setDate(formatter.format(date));
@@ -48,13 +48,13 @@ public class BookNowServlet extends HttpServlet {
                     ArrayList<Cart> cart_Service_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
                     if (cart_Service_list != null) {
                         for (Cart c : cart_Service_list) {
-                            if (c.getId() == Integer.parseInt(productId)) {
+                            if (c.getId() == Integer.parseInt(tourId)) {
                                 cart_Service_list.remove(cart_Service_list.indexOf(c));
                                 break;
                             }
                         }
                     }
-                    response.sendRedirect("bookings.jsp");
+                    response.sendRedirect("thank_you.jsp");
                 } else {
                     out.println("booking failed");
                 }
