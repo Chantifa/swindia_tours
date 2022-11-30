@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="swindiatourbean">
+    <output-path>$PROJECT_DIR$/out/artifacts/swindiatourbean</output-path>
+    <root id="root" />
+  </artifact>
+</component>
