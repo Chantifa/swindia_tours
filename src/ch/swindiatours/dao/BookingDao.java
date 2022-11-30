@@ -26,7 +26,7 @@ public class BookingDao {
     public boolean insertBooking(Booking model) {
         boolean result = false;
         try {
-            query = "insert into bookings (t_id, u_id, b_quantity, b_date) values(?,?,?,?)";
+            query = "insert into swindiatours.public.bookings (t_id, u_id, b_quantity, b_date) values(?,?,?,?)";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, model.getId());
             pst.setInt(2, model.getUid());
@@ -44,7 +44,7 @@ public class BookingDao {
     public List<Booking> userBookings(int id) {
         List<Booking> list = new ArrayList<>();
         try {
-            query = "select * from bookings where u_id=? order by bookings.b_id desc";
+            query = "select * from swindiatours.public.bookings where u_id=? order by swindiatours.public.bookings.b_id desc";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
             rs = pst.executeQuery();
@@ -72,7 +72,7 @@ public class BookingDao {
     public void cancelBooking(int id) {
         //boolean result = false;
         try {
-            query = "delete from bookings where b_id=?";
+            query = "delete from swindiatours.public.bookings where b_id=?";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
             pst.execute();

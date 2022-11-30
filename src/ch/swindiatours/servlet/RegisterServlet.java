@@ -1,5 +1,7 @@
 package ch.swindiatours.servlet;
 
+import ch.swindiatours.connection.DbCon;
+import ch.swindiatours.dao.UserDao;
 import ch.swindiatours.model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.Objects;
 
 @WebServlet(name = "register", value = "/register")
@@ -40,6 +43,20 @@ public class RegisterServlet extends HttpServlet {
         user.setPassword(pwd);
         user.setName(name);
         user.setEmail(email);
+
+        try {
+            UserDao userDao = new UserDao(DbCon.getConnection());
+            boolean result = userDao.userRegister(user);
+            if(result){
+                response.sendRedirect("login.jsp");
+            }
+            else {
+                    out.println("register failed");
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
         // Check if password repeat is correct
         if (!(name.isEmpty() || email.isEmpty() ||

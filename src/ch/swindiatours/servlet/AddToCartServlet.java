@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
-@WebServlet(name = "AddToCartServlet", urlPatterns = "/add-to-cart")
+@WebServlet(name = "AddToCartServlet", value = "/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

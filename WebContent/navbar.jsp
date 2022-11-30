@@ -16,7 +16,7 @@
 				<%
 				if (auth != null) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="bookings.jsp">Bookins</a></li>
+				<li class="nav-item"><a class="nav-link" href="bookings.jsp">Bookings</a></li>
 				<li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
 				<%
 				} else {

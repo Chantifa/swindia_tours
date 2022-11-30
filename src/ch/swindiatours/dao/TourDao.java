@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TourDao {
-    private Connection con;
+    private final Connection con;
 
     private String query;
     private PreparedStatement pst;
@@ -28,7 +28,7 @@ public class TourDao {
         List<Tour> book = new ArrayList<>();
         try {
 
-            query = "select * from tours";
+            query = "select * from swindiatours.public.tours";
             pst = this.con.prepareStatement(query);
             rs = pst.executeQuery();
 
@@ -42,6 +42,7 @@ public class TourDao {
 
                 book.add(row);
             }
+            return book;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,7 +53,7 @@ public class TourDao {
     public Tour getSingleProduct(int id) {
         Tour row = null;
         try {
-            query = "select * from tours where id=? ";
+            query = "select * from swindiatours.public.tours where id=? ";
 
             pst = this.con.prepareStatement(query);
             pst.setInt(1, id);
@@ -79,7 +80,7 @@ public class TourDao {
         try {
             if (cartList.size() > 0) {
                 for (Cart item : cartList) {
-                    query = "select price from products where id=?";
+                    query = "select price from swindiatours.public.tours where id=?";
                     pst = this.con.prepareStatement(query);
                     pst.setInt(1, item.getId());
                     rs = pst.executeQuery();
@@ -103,7 +104,7 @@ public class TourDao {
         try {
             if (cartList.size() > 0) {
                 for (Cart item : cartList) {
-                    query = "select * from products where id=?";
+                    query = "select * from swindiatours.public.tours where id=?";
                     pst = this.con.prepareStatement(query);
                     pst.setInt(1, item.getId());
                     rs = pst.executeQuery();

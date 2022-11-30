@@ -16,10 +16,10 @@
         request.setAttribute("person", auth);
     }
     ArrayList<Cart> cart_Service_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-    List<Cart> cartProduct = null;
+    List<Cart> cartTour = null;
     if (cart_Service_list != null) {
         TourDao tourDao = new TourDao(DbCon.getConnection());
-        cartProduct = tourDao.getCartTours(cart_Service_list);
+        cartTour = tourDao.getCartTours(cart_Service_list);
         double total = tourDao.getTotalCartPrice(cart_Service_list);
         request.setAttribute("total", total);
         request.setAttribute("cart_Service_list", cart_Service_list);
@@ -29,7 +29,7 @@
 <html>
 <head>
     <%@include file="head.jsp" %>
-    <title>SwIndiaTours</title>
+    <title>SwIndia Tours</title>
     <style type="text/css">
 
         .table tbody td {
@@ -62,7 +62,7 @@
         <tbody>
         <%
             if (cart_Service_list != null) {
-                for (Cart c : cartProduct) {
+                for (Cart c : cartTour) {
         %>
         <tr>
             <td><%=c.getName()%>

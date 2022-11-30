@@ -41,7 +41,7 @@
                      alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><%=t.getName() %></h5>
-                    <h6 class="price">Price: $<%=t.getPrice() %></h6>
+                    <h6 class="price">Price: CHF<%=t.getPrice() %></h6>
                     <h6 class="category">Description: <%=t.getDescription() %></h6>
                     <div class="mt-3 d-flex justify-content-between">
                         <a class="btn btn-dark" href="add-to-cart?id=<%=t.getId()%>">Add to Cart</a> <a
