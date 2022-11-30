@@ -1,4 +1,17 @@
+<%@ page import="ch.swindiatours.model.User" %>
+<%@ page import="ch.swindiatours.model.Cart" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+	User auth = (User) request.getSession().getAttribute("auth");
+	if (auth != null) {
+		response.sendRedirect("index.jsp");
+	}
+	ArrayList<Cart> cart_Service_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+	if (cart_Service_list != null) {
+		request.setAttribute("cart_Service_list", cart_Service_list);
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +44,7 @@
 								</div>
 
 								<div class="row">
-									<div class="mb-4 pb-2 pb-md-0 ">
+									<div class="col-md-6 mb-4">
 										<div class="form-outline">
 											<input type="email" id="email" class="form-control form-control-lg" name="email" required/>
 											<label class="form-label" for="email">email</label>

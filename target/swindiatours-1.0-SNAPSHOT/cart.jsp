@@ -16,10 +16,10 @@
         request.setAttribute("person", auth);
     }
     ArrayList<Cart> cart_Service_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-    List<Cart> cartProduct = null;
+    List<Cart> cartTour = null;
     if (cart_Service_list != null) {
         TourDao tourDao = new TourDao(DbCon.getConnection());
-        cartProduct = tourDao.getCartTours(cart_Service_list);
+        cartTour = tourDao.getCartTours(cart_Service_list);
         double total = tourDao.getTotalCartPrice(cart_Service_list);
         request.setAttribute("total", total);
         request.setAttribute("cart_Service_list", cart_Service_list);
@@ -29,7 +29,7 @@
 <html>
 <head>
     <%@include file="head.jsp" %>
-    <title>SwIndiaTours</title>
+    <title>SwIndia Tours</title>
     <style type="text/css">
 
         .table tbody td {
@@ -62,7 +62,7 @@
         <tbody>
         <%
             if (cart_Service_list != null) {
-                for (Cart c : cartProduct) {
+                for (Cart c : cartTour) {
         %>
         <tr>
             <td><%=c.getName()%>
@@ -72,7 +72,7 @@
             <td><%= dcf.format(c.getPrice())%>
             </td>
             <td>
-                <form action="bookings-now" method="post" class="form-inline">
+                <form action="book-now" method="post" class="form-inline">
                     <input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
                     <div class="form-group d-flex justify-content-between">
                         <a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i
@@ -81,7 +81,7 @@
                         <a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i
                                 class="fas fa-minus-square"></i></a>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm">Buy</button>
+                    <button type="submit" class="btn btn-primary btn-sm" href="thank_you.jsp">Buy</button>
                 </form>
             </td>
             <td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
