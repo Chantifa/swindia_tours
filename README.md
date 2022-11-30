@@ -1,4 +1,4 @@
-![LogoSwindiaTours](/src/main/backend/resources/img/logo.png)
+![LogoSwindiaTours](WebContent/img/logo.png)
 # SwIndiaTours
 
 Hi mein Name ist Chantale und ich bin Informatik-Studentin an der FFHS im 9 Semester. 
