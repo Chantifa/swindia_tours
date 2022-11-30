@@ -10,9 +10,6 @@ Ich werde als die Bilder und die Texte wiederverwenden, um nicht alles neu alles
 Mir geht es vor allem darum, die Technologien zu verwenden, davon zu lernen und nicht zu viel Zeit
 mit Schönheit und nebensächlichen zu verlieren.
 
-SwIndia by Gihara war früher ein Online-Shop um Touren in Indien zu buchen, mein Ex-Mann der in Indien lebt,
-hatte die Touren danach durchgeführt. Wegen Corona wurde das Business leider eingestellt und somit auch meine Webseite.
-Ich bin also Besitzer des Brand SwIndia by Gihara und habe somit die Weiterbenutzungsrechte.
 
 ## Technologien
 #### Backend
@@ -22,7 +19,7 @@ Ich bin also Besitzer des Brand SwIndia by Gihara und habe somit die Weiterbenut
 - JDK 17
 
 #### Frontend
-- evtl. Angular
+- jsp via Jakarta Servlets
 
 ### Kontakt
 - chantale.gihara@students.ffhs.ch
