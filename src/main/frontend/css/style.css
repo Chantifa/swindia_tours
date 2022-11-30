@@ -1,0 +1,1014 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,400i,700');
+
+body {
+
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+
+    font-weight: 400;
+}
+.error {
+    color: red;
+}
+
+.success {
+    color: #ff9966;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #122b40;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+    color: #fff;
+    background-color: #204d74;
+    border-color: #122b40;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn-primary .badge {
+    color: #337ab7;
+    background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: 'Roboto Slab', Georgia, Times, 'Times New Roman', serif;
+}
+div ul li {
+    font-size:1em;
+    list-style: none;
+    float: inherit;
+    position: center;
+    margin: 12px 50px 50px;
+}
+blockquote {
+
+    font-style: italic;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.form form>label {
+    font-weight: 700;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+img {
+    object-fit: cover;
+}
+
+
+/* Colors */
+
+header {
+    background-color: #591829;
+}
+
+body,
+footer {
+    background-color: #1A2624;
+}
+
+header,
+header a,
+footer,
+footer a {
+    color: #ffffff;
+}
+
+#topbar,
+main {
+    background-color: #ffffff
+}
+
+h2 {
+    color: #591829;
+}
+
+/* Header */
+
+
+#topbar {
+    padding: 5px 20px;
+}
+
+header {
+    padding: 20px;
+    height: 50px;
+    position: relative;
+}
+
+header a .logo {
+    display: block;
+    position: relative ;
+    top: 0;
+    left: 0;
+    float: left;
+}
+nav ul {
+    padding-left: 0;
+    list-style: none;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    padding: 25px 10px;
+    float: left;
+    height: 20px;
+}
+
+nav ul li a:not(.icon):hover {
+    background-color: #92A4A6;
+}
+
+nav ul li a.icon:hover {
+    color: #92A4A6;
+}
+
+nav .active {
+    background: #92A4A6;
+}
+
+nav .icon {
+    display: none;
+    padding: 25px 25px;
+}
+
+@media screen and (max-width: 600px) {
+
+    nav a:not(.active) {
+        display: none;
+    }
+
+    nav a.icon {
+        float: right;
+        display: block;
+    }
+
+    nav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    nav.responsive ul li {
+        background-color: #9fc5f8;
+    }
+
+    nav.responsive ul li {
+        display: block;
+        width: 100vw;
+    }
+
+    nav.responsive ul li a {
+        float: none;
+        display: block;
+    }
+}
+
+/*about*/
+#about div . {
+    float: start;
+    position: center;
+    margin: 12px 50px 50px;
+
+}
+
+/* Main */
+
+
+main {
+    padding: 25px;
+}
+
+ul.intro {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+    padding-left: 0;
+    list-style: none;
+}
+
+@media screen and (max-width: 1000px) {
+    ul.intro {
+        grid-template-columns: 1fr;
+    }
+}
+
+ul.intro a {
+    display: block;
+    position: relative;
+}
+
+ul.intro h2 {
+    color: white;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    font-size: 2em;
+    text-transform: uppercase;
+
+    /* Positionierung auf dem Bild */
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* Text Zentrierung */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_SwIndiaTours {
+    height: 350px;
+    width: 100%;
+    display: block;
+    margin: 0px auto 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/***********************
+  Versuchen wir es doch hier mit einem Grid. Wir könnten diese Auflistung (sei es von Soft Drinks, Pizzen oder Salate) auch mit der Flexbox und sicher noch auf andere Arten lösen.
+***********************/
+
+ul.article {
+    display: grid;
+
+    /***********************
+      Umso fauler, umso besser. Statt '1fr 1fr 1fr 1fr' zu schreiben, kann man auch die 'repeat()' Funktion vo CSS verwenden.
+    ***********************/
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+
+    padding-left: 0;
+    list-style: none;
+}
+
+ul.article li {
+    width: 300px;
+}
+
+/***********************
+  Ich hab hier mal eine Grösse für die Bilder definiert. Die Überschreiben die Grösse der Bilder im HTML. Da 300 x 300 Pixel quadratisch ist, aber nicht alle Bilder quadratisch sind, werden sie verzogen.
+
+  Entweder bearbeiten wir alle Bilder, dass sie quadratisch sind oder wir finden eine andere Lösung.
+***********************/
+
+ul.article li img {
+    height: 300px;
+    width: 300px;
+}
+
+ul.article li h2 {
+    font-size: 0.9em;
+    padding: 5px 0;
+}
+
+/***********************
+  Trolley-Piktorgramme:
+***********************/
+
+ul.article li a img {
+    height: 25px;
+    width: 25px;
+}
+
+div ul.article li img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+ul.article div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0;
+}
+ul.article div div .request-offer {
+    flex-grow: 3;
+    text-align: right;
+}
+
+ul.article div .price {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+ul.article small {
+    display: block;
+    padding-bottom: 2em;
+}
+
+/*********************
+article-airport
+
+*******************/
+
+ul.article-airport {
+    display: grid;
+
+    /***********************
+      Umso fauler, umso besser. Statt '1fr 1fr 1fr 1fr' zu schreiben, kann man auch die 'repeat()' Funktion vo CSS verwenden.
+    ***********************/
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+
+    padding-left: 0;
+    list-style: none;
+}
+
+ul.article-airport li {
+    width: 300px;
+}
+
+/***********************
+  Ich hab hier mal eine Grösse für die Bilder definiert. Die Überschreiben die Grösse der Bilder im HTML. Da 300 x 300 Pixel quadratisch ist, aber nicht alle Bilder quadratisch sind, werden sie verzogen.
+
+  Entweder bearbeiten wir alle Bilder, dass sie quadratisch sind oder wir finden eine andere Lösung.
+***********************/
+
+ul.article-airport li img {
+    height: 300px;
+    width: 300px;
+}
+
+ul.article-airport li h2 {
+    font-size: 0.9em;
+    padding: 5px 0;
+}
+
+ul.article-airport li a img {
+    height: 25px;
+    width: 25px;
+}
+
+div ul.article-airport li img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+ul.article-airport div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0;
+}
+ul.article-airport div div .request-offer {
+    flex-grow: 3;
+    text-align: right;
+}
+
+ul.article-airport div .price {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+ul.article-airport small {
+    display: block;
+    padding-bottom: 2em;
+}
+/*************************
+Article mix tours
+ */
+
+/***
+Article mix tours
+*/
+
+ul.article-mix {
+    display: grid;
+
+    /***********************
+      Umso fauler, umso besser. Statt '1fr 1fr 1fr 1fr' zu schreiben, kann man auch die 'repeat()' Funktion vo CSS verwenden.
+    ***********************/
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+
+    padding-left: 0;
+    list-style: none;
+}
+
+ul.article-mix li {
+    width: 300px;
+}
+
+/***********************
+  Ich hab hier mal eine Grösse für die Bilder definiert. Die Überschreiben die Grösse der Bilder im HTML. Da 300 x 300 Pixel quadratisch ist, aber nicht alle Bilder quadratisch sind, werden sie verzogen.
+
+  Entweder bearbeiten wir alle Bilder, dass sie quadratisch sind oder wir finden eine andere Lösung.
+***********************/
+
+ul.article-mix li img {
+    height: 300px;
+    width: 300px;
+}
+
+ul.article-mix li h2 {
+    font-size: 0.9em;
+    padding: 5px 0;
+}
+
+ul.article-mix {
+    display: grid;
+
+    /***********************
+      Umso fauler, umso besser. Statt '1fr 1fr 1fr 1fr' zu schreiben, kann man auch die 'repeat()' Funktion vo CSS verwenden.
+    ***********************/
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+
+    padding-left: 0;
+    list-style: none;
+}
+
+ul.article-mix li {
+    width: 300px;
+}
+
+/***********************
+  Ich hab hier mal eine Grösse für die Bilder definiert. Die Überschreiben die Grösse der Bilder im HTML. Da 300 x 300 Pixel quadratisch ist, aber nicht alle Bilder quadratisch sind, werden sie verzogen.
+
+  Entweder bearbeiten wir alle Bilder, dass sie quadratisch sind oder wir finden eine andere Lösung.
+***********************/
+
+ul.article-mix li img {
+    height: 300px;
+    width: 300px;
+}
+
+ul.article-mix li h2 {
+    font-size: 0.9em;
+    padding: 5px 0;
+}
+
+/***********************
+  Trolley-Piktorgramme:
+***********************/
+
+ul.article-mix li a img {
+    height: 25px;
+    width: 25px;
+}
+
+div ul.article-mix li img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+ul.article-mix div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0;
+}
+ul.article-mix div div .request-offer {
+    flex-grow: 3;
+    text-align: right;
+}
+
+ul.article-mix div .price {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+ul.article-mix small {
+    display: block;
+    padding-bottom: 2em;
+}
+
+/*************************
+Article madhyapradesh
+ */
+ul.article-madhyapradesh {
+    display: grid;
+
+    /***********************
+      Umso fauler, umso besser. Statt '1fr 1fr 1fr 1fr' zu schreiben, kann man auch die 'repeat()' Funktion vo CSS verwenden.
+    ***********************/
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+
+    padding-left: 0;
+    list-style: none;
+}
+
+ul.article-madhyapradesh li {
+    width: 300px;
+}
+
+/***********************
+  Ich hab hier mal eine Grösse für die Bilder definiert. Die Überschreiben die Grösse der Bilder im HTML. Da 300 x 300 Pixel quadratisch ist, aber nicht alle Bilder quadratisch sind, werden sie verzogen.
+
+  Entweder bearbeiten wir alle Bilder, dass sie quadratisch sind oder wir finden eine andere Lösung.
+***********************/
+
+ul.article-madhyapradesh li img {
+    height: 300px;
+    width: 300px;
+}
+
+ul.article-madhyapradesh li h2 {
+    font-size: 0.9em;
+    padding: 5px 0;
+}
+
+/***********************
+  Trolley-Piktorgramme:
+***********************/
+
+ul.article-madhyapradesh li a img {
+    height: 25px;
+    width: 25px;
+}
+
+div ul.article-madhyapradesh li img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+ul.article-madhyapradesh div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0;
+}
+ul.article-madhyapradesh div div .request-offer {
+    flex-grow: 3;
+    text-align: right;
+}
+
+ul.article-madhyapradesh div .price {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+ul.article-madhyapradesh small {
+    display: block;
+    padding-bottom: 2em;
+}
+/***********************
+  Da es bei kleineren Bildschirmgrössen nicht mit 4 Spalten geht, hier ein paar Media Queries, die die Spaltenanzahl verringern:
+***********************/
+
+@media screen and (max-width: 1280px) {
+    ul.article {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    ul.article-madhyapradesh{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    ul.article-madhyapradesh{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .logo {
+        display: none;
+    }
+
+    ul.article {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    ul.article-mix{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    ul.article-madhyapradesh{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .logo {
+        display: none;
+    }
+    ul.article {
+        grid-template-columns: 1fr;
+    }
+    ul.article-mix {
+        grid-template-columns: 1fr;
+    }
+    ul.article-madhyapradesh {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.form #message-name {
+    grid-column-start: 2;
+}
+.form #message-mobile {
+    grid-column-start: 2;
+}
+
+.form #message-email {
+    grid-column-start: 2;
+}
+
+.form #contact {
+    text-align: center;
+    grid-template-columns: 1fr ;
+}
+
+.form form {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-gap: .5em 1em;
+}
+
+.form label {
+    text-align: right;
+}
+
+.form fieldset {
+    border: none;
+}
+
+.form fieldset label {
+    margin: 0 10px 0 2px;
+}
+
+.form textarea {
+    height: 150px;
+}
+
+.form .submit {
+    grid-column-start: 2;
+    justify-self: end;
+}
+
+@media screen and (max-width: 600px) {
+    .logo {
+
+    }
+    .form form {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+
+    .form form>label {
+        text-align: left;
+        margin: 10px 0 2px;
+    }
+
+    .form #submit {
+        grid-column-start: 1;
+    }
+    .form #submitfeedback {
+        grid-column-start: 1;
+    }
+    .form #submitDemand {
+        grid-column-start: 1;
+    }
+}
+
+div[id="message"] {
+    color: red;
+    grid-column-start: 2;
+    margin-bottom: 5px;
+}
+
+
+footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer div {
+    padding: 0 25px 0 0;
+}
+
+footer div:last-child {
+    padding: 0;
+}
+
+footer #opening-hours,
+footer #address {
+    flex-basis: 25%;
+}
+
+footer #quote {
+    flex-basis: 50%;
+}
+
+footer #quote blockquote,
+footer #quote cite {
+    display: inline;
+}
+
+footer h3 {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1000px) {
+    footer {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    footer #opening-hours,
+    footer #quote,
+    footer #address {
+        padding: 0 0 20px;
+        flex-basis: 50%;
+    }
+
+    footer #quote {
+        flex-basis: 100%;
+        order: 2;
+    }
+}
+
+/* Feedback Tables */
+
+#statistic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#statistic table {
+    margin: 10px;
+    padding: 10px;
+    background-color: #92A4A6;
+}
+
+#statistic table tr > :nth-child(2n) {
+    padding-left: 10px;
+    text-align: right;
+}
+
+/*contact form
+*/
+
+.container {
+    max-width:400px;
+    width:100%;
+    margin:0 auto;
+    position:relative;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="options"],
+#contact textarea,
+#contact button[type="submit"] {
+    font:600 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+    padding:25px;
+    margin:50px 0;
+}
+
+#contact h3 {
+    color: #000000;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#contact h4 {
+    color: #000000;
+    margin:5px 0 15px;
+    display:block;
+    font-size:13px;
+}
+
+fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact input[type="options"], #contact textarea {
+    width:100%;
+    border:1px solid #CCC;
+    background:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="options"]:hover,
+#contact textarea:hover {
+    -webkit-transition:border-color 0.3s ease-in-out;
+    -moz-transition:border-color 0.3s ease-in-out;
+    transition:border-color 0.3s ease-in-out;
+    border:1px solid #AAA;
+}
+
+#contact textarea {
+    height:100px;
+    max-width:100%;
+    resize:none;
+}
+
+#contact button[type="submit"] {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:grey;
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+    background: black;
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+    outline:0;
+    border:1px solid #999;
+}
+::-webkit-input-placeholder {
+    color:#888;
+}
+:-moz-placeholder {
+    color:#888;
+}
+::-moz-placeholder {
+    color:#888;
+}
+:-ms-input-placeholder {
+    color:#888;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.form-control::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+.form-control:-ms-input-placeholder {
+    color: #999;
+}
+.form-control::-webkit-input-placeholder {
+    color: #999;
+}
+.form-control::-ms-expand {
+    background-color: transparent;
+    border: 0;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: #eee;
+    opacity: 1;
+}
+.form-control[disabled],
+fieldset[disabled] .form-control {
+    cursor: not-allowed;
+}
+textarea.form-control {
+    height: auto;
+}
+input[type="search"] {
+    -webkit-appearance: none;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="date"].form-control,
+    input[type="time"].form-control,
+    input[type="datetime-local"].form-control,
+    input[type="month"].form-control {
+        line-height: 34px;
+    }
+}
+.form-group {
+    margin-bottom: 15px;
+}
