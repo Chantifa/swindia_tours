@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="swindiatours:war exploded">
+    <output-path>$PROJECT_DIR$/target/swindiatours-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>swindiatours</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="swindiatours" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: postgresql:pljava-public:1.0.0b4" />
+          <element id="library" level="project" name="Maven: jakarta.servlet:jakarta.servlet-api:5.0.0" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/swindiatours-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="swindiatours/web/Web" />
+    </root>
+  </artifact>
+</component>
