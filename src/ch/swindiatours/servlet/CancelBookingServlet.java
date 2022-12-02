@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class CancelBookingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
