@@ -27,21 +27,22 @@ public class CheckOutServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
-            ArrayList<Cart> cart_Service_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+            ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
             User auth = (User) request.getSession().getAttribute("auth");
-            if (cart_Service_list != null && auth != null) {
-                for (Cart c : cart_Service_list) {
-                    Booking bookings = new Booking();
-                    bookings.setId(c.getId());
-                    bookings.setUid(auth.getId());
-                    bookings.setQunatity(c.getQuantity());
-                    bookings.setDate(formatter.format(date));
+            if (cart_list != null && auth != null) {
+                for (Cart c : cart_list) {
+                    Booking booking = new Booking();
+                    booking.setBookingId(c.getId());
+                    booking.setTourId(c.getId());
+                    booking.setUid(auth.getId());
+                    booking.setQunatity(c.getQuantity());
+                    booking.setDate(formatter.format(date));
 
                     BookingDao bDao = new BookingDao(DbCon.getConnection());
-                    boolean result = bDao.insertBooking(bookings);
+                    boolean result = bDao.insertBooking(booking);
                     if (!result) break;
                 }
-                cart_Service_list.clear();
+                cart_list.clear();
                 response.sendRedirect("bookings.jsp");
             } else {
                 if (auth == null) {

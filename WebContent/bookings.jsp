@@ -7,7 +7,8 @@
 <%@ page import="ch.swindiatours.dao.BookingDao" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%
+<%!
+	%><%
 	DecimalFormat dcf = new DecimalFormat("#.##");
 	request.setAttribute("dcf", dcf);
 	User auth = (User) request.getSession().getAttribute("auth");

@@ -42,12 +42,14 @@ public class RegisterServlet extends HttpServlet {
         final String repeadpwd = request.getParameter("repeatepassword");
 
         User user = new User();
-        user.setPassword(pwd);
-        user.setName(name);
-        user.setEmail(email);
-
         try {
             UserDao userDao = new UserDao(DbCon.getConnection());
+
+            user.setId(userDao.getLastUserIdPlusOne());
+            user.setPassword(pwd);
+            user.setName(name);
+            user.setEmail(email);
+
             boolean result = userDao.userRegister(user);
             if(result){
                 response.sendRedirect("login.jsp");

@@ -81,7 +81,7 @@
                         <a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i
                                 class="fas fa-minus-square"></i></a>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm" href="thank_you.jsp">Buy</button>
+                    <button type="submit" class="btn btn-primary btn-sm" href="booking.jsp">Buy</button>
                 </form>
             </td>
             <td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>

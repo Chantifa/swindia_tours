@@ -11,13 +11,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%	User auth = (User) request.getSession().getAttribute("auth");%>
 <html>
 <head>
-    <%@include file="head.jsp" %>
+    <%@include file="head.jsp"%>
     <title>SwIndia Tours</title>
 </head>
 <body>
-<%@include file="navbar.jsp" %>
+<%@include file="navbar.jsp"%>
 <% Date date = new Date(); %>
 <% User user = new User(); %>
 <% Booking booking = new Booking(); %>
@@ -29,8 +30,18 @@
 <p><%= bookingString %>
         <% BookingDao bookingDao = new BookingDao(DbCon.getConnection());
           List<Booking> bookings = bookingDao.userBookings(user.getId());
-          while (bookings.iterator().hasNext()) %>
-        {
-            <div><% bookings.iterator().next(); %></div>
+          while (bookings.iterator().hasNext())   {
+             Booking b = bookings.iterator().next();
+          }
+            %>
+
+<table>
+    <c:forEach items="${bookings}" var="item">
+        <tr>
+            <td><c:out value="${item}" /></td>
+        </tr>
+    </c:forEach>
+</table>
+
 </body>
 </html>

@@ -32,29 +32,29 @@ public class BookNowServlet extends HttpServlet {
 
             if (auth != null) {
                 String tourId = request.getParameter("id");
-                int productQuantity = Integer.parseInt(request.getParameter("quantity"));
-                if (productQuantity <= 0) {
-                    productQuantity = 1;
+                int tourQuantiy = Integer.parseInt(request.getParameter("quantity"));
+                if (tourQuantiy <= 0) {
+                    tourQuantiy = 1;
                 }
-                Booking bookingModel = new Booking();
-                bookingModel.setId(Integer.parseInt(tourId));
-                bookingModel.setUid(auth.getId());
-                bookingModel.setQunatity(productQuantity);
-                bookingModel.setDate(formatter.format(date));
+                Booking booking = new Booking();
+                booking.setTourId(Integer.parseInt(tourId));
+                booking.setUid(auth.getId());
+                booking.setQunatity(tourQuantiy);
+                booking.setDate(formatter.format(date));
 
                 BookingDao bookingDao = new BookingDao(DbCon.getConnection());
-                boolean result = bookingDao.insertBooking(bookingModel);
+                boolean result = bookingDao.insertBooking(booking);
                 if (result) {
-                    ArrayList<Cart> cart_Service_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
-                    if (cart_Service_list != null) {
-                        for (Cart c : cart_Service_list) {
+                    ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+                    if (cart_list != null) {
+                        for (Cart c : cart_list) {
                             if (c.getId() == Integer.parseInt(tourId)) {
-                                cart_Service_list.remove(cart_Service_list.indexOf(c));
+                                cart_list.remove(cart_list.indexOf(c));
                                 break;
                             }
                         }
                     }
-                    response.sendRedirect("thank_you.jsp");
+                    response.sendRedirect("bookings.jsp");
                 } else {
                     out.println("booking failed");
                 }

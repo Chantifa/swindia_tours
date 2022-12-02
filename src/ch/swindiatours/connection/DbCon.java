@@ -5,7 +5,8 @@ import java.sql.SQLException;
 
 public class DbCon {
     private static Connection connection = null;
-    public static Connection getConnection() throws ClassNotFoundException, SQLException{
+
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
         try {
             javax.naming.InitialContext ctx = new javax.naming.InitialContext();
             javax.sql.DataSource ds = (javax.sql.DataSource)

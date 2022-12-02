@@ -27,7 +27,7 @@ public class Booking extends Tour {
     public int getBookingId() {
         return bookingId;
     }
-    public void setBookingId(int orderId) {
+    public void setBookingId(int bookingId) {
         this.bookingId = bookingId;
     }
 
@@ -51,4 +51,5 @@ public class Booking extends Tour {
     public void setDate(String date) {
         this.date = date;
     }
+
 }

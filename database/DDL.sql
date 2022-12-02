@@ -1,7 +1,7 @@
 --
 DROP TABLE IF EXISTS bookings;
 CREATE TABLE IF NOT EXISTS bookings (
-  b_id int NOT NULL PRIMARY KEY ,
+  b_id SERIAL  NOT NULL  PRIMARY KEY ,
   t_id int NOT NULL,
   u_id int NOT NULL,
   b_quantity int NOT NULL,

@@ -2,10 +2,7 @@ package ch.swindiatours.dao;
 
 import ch.swindiatours.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDao {
     private final Connection con;
@@ -44,9 +41,8 @@ public class UserDao {
                 rs = pst.executeQuery();
                 if(rs.next()){
                     user= new User();
-                    user.setId(rs.getInt("id"));
                     user.setName(rs.getString("name"));
-                    user.setName(rs.getString("email"));
+                    user.setEmail(rs.getString("email"));
                 }
             }
             catch (SQLException e) {
@@ -54,5 +50,26 @@ public class UserDao {
             }
             return user;
         }
+
+    public int getLastUserIdPlusOne() {
+        ResultSet rs = null;
+        try {
+            query = "select max(id) from swindiatours.public.users";
+            pst = this.con.prepareStatement(query);
+            rs = pst.executeQuery();
+            ResultSetMetaData meta = rs.getMetaData();
+            String id = meta.getColumnLabel(1);
+            while (rs.next()) {
+                System.out.println(rs.getInt(1)+1);
+                return rs.getInt(1)+ 1;
+            }
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return 1;
+    }
 
 }

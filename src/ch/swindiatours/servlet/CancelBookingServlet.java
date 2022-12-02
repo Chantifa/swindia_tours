@@ -17,12 +17,12 @@ public class CancelBookingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
             if (id != null) {
-                BookingDao orderDao = new BookingDao(DbCon.getConnection());
-                orderDao.cancelBooking(Integer.parseInt(id));
+                BookingDao bookingDao = new BookingDao(DbCon.getConnection());
+                bookingDao.cancelBooking(Integer.parseInt(id));
             }
             response.sendRedirect("bookings.jsp");
         } catch (ClassNotFoundException | SQLException e) {
