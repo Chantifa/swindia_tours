@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS tours;
 
 
 CREATE TABLE tours (
-  id int NOT NULL primary key ,
+  id SERIAL NOT NULL primary key ,
   name varchar(450) NOT NULL,
   description varchar(450) NOT NULL,
   price DOUBLE PRECISION NOT NULL,
@@ -43,7 +43,7 @@ INSERT INTO tours  values (6,'Rishikesh and Haridwar','Haridwar An important and
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-  id int NOT NULL PRIMARY KEY ,
+  id SERIAL NOT NULL PRIMARY KEY ,
   name varchar(250) NOT NULL,
   email varchar(250) NOT NULL,
   password varchar(250) NOT NULL

@@ -50,26 +50,4 @@ public class UserDao {
             }
             return user;
         }
-
-    public int getLastUserIdPlusOne() {
-        ResultSet rs = null;
-        try {
-            query = "select max(id) from swindiatours.public.users";
-            pst = this.con.prepareStatement(query);
-            rs = pst.executeQuery();
-            ResultSetMetaData meta = rs.getMetaData();
-            String id = meta.getColumnLabel(1);
-            while (rs.next()) {
-                System.out.println(rs.getInt(1)+1);
-                return rs.getInt(1)+ 1;
-            }
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
-        return 1;
-    }
-
 }

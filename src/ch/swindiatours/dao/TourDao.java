@@ -127,18 +127,4 @@ public class TourDao {
         }
         return book;
     }
-
-    public int getLastTourIdPlusOne() {
-        ResultSet rs = null;
-        try {
-            query = "select max(id) from swindiatours.public.tours";
-            pst = this.con.prepareStatement(query);
-            rs = pst.executeQuery();
-            return rs.getInt("id")+1;
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
-        return 1;
-    }
 }
