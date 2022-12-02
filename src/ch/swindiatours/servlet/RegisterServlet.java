@@ -42,22 +42,18 @@ public class RegisterServlet extends HttpServlet {
         final String repeadpwd = request.getParameter("repeatepassword");
 
         User user = new User();
-        try {
-            UserDao userDao = new UserDao(DbCon.getConnection());
+        UserDao userDao = new UserDao(DbCon.getConnection());
 
-            user.setPassword(pwd);
-            user.setName(name);
-            user.setEmail(email);
+        user.setPassword(pwd);
+        user.setName(name);
+        user.setEmail(email);
 
-            boolean result = userDao.userRegister(user);
-            if(result){
-                response.sendRedirect("login.jsp");
-            }
-            else {
-                    out.println("register failed");
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+        boolean result = userDao.userRegister(user);
+        if(result){
+            response.sendRedirect("login.jsp");
+        }
+        else {
+                out.println("register failed");
         }
 
 

@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -32,9 +31,6 @@ public class LoginServlet extends HttpServlet {
             } else {
                 out.println("there is no user");
             }
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
         }
 
     }
