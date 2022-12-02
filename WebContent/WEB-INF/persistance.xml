@@ -5,10 +5,29 @@
              version="3.0">
     <persistence-unit name="swindiatours">
         <jta-data-source>jdbc/swindiatours</jta-data-source>
+        <class>ch.swindiatours.Entities.Booking</class>
+        <class>ch.swindiatours.Entities.Tour</class>
+        <class>ch.swindiatours.Entities.User</class>
         <properties>
                 <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
                 <property name="jakarta.persistence.sql-load-script-source" value="/database/DDL.sql"/>
                 <property name="eclipselink.logging.level" value="FINEST"/>
+            <property name="toplink.jdbc.url" value="jdbc:postgresql://localhost:5432/swindiatours"/>
+            <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="toplink.jdbc.user" value="postgres"/>
+            <property name="toplink.jdbc.password" value="secret"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/swindiatours"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="secret"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost:5432/swindiatours"/>
+            <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>
+            <property name="openjpa.ConnectionUserName" value="postgres"/>
+            <property name="openjpa.ConnectionPassword" value="secret"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/swindiatours"/>
+            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="eclipselink.jdbc.user" value="postgres"/>
+            <property name="eclipselink.jdbc.password" value="secret"/>
         </properties>
     </persistence-unit>
 </persistence>

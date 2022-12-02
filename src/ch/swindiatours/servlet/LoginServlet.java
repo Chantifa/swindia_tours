@@ -2,7 +2,7 @@ package ch.swindiatours.servlet;
 
 import ch.swindiatours.connection.DbCon;
 import ch.swindiatours.dao.UserDao;
-import ch.swindiatours.model.User;
+import ch.swindiatours.Entities.User;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

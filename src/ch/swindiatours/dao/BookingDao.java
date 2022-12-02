@@ -1,13 +1,14 @@
 package ch.swindiatours.dao;
 
-import ch.swindiatours.model.Booking;
-import ch.swindiatours.model.Tour;
+import ch.swindiatours.Entities.Booking;
+import ch.swindiatours.Entities.Tour;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookingDao {
+
     private Connection con;
 
     private String query;
@@ -20,10 +21,11 @@ public class BookingDao {
         this.con = con;
     }
 
+
     public boolean insertBooking(Booking model) {
         boolean result = false;
         try {
-            query = "insert into bookings (b_id,t_id, u_id, b_quantity, b_date) values(?,?,?,?)";
+            query = "insert into bookings (t_id, u_id, b_quantity, b_date) values(?,?,?,?)";
             pst = this.con.prepareStatement(query);
             pst.setInt(1,model.getId());
             pst.setInt(2, model.getUid());

@@ -1,7 +1,7 @@
 package ch.swindiatours.dao;
 
-import ch.swindiatours.model.Cart;
-import ch.swindiatours.model.Tour;
+import ch.swindiatours.Entities.Cart;
+import ch.swindiatours.Entities.Tour;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

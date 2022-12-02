@@ -1,14 +1,3 @@
---
-DROP TABLE IF EXISTS bookings;
-CREATE TABLE IF NOT EXISTS bookings (
-  b_id SERIAL  NOT NULL  PRIMARY KEY ,
-  t_id int NOT NULL,
-  u_id int NOT NULL,
-  b_quantity int NOT NULL,
-  b_date varchar(450) NOT NULL
-) ;
-
-INSERT INTO bookings VALUES (25,3,1,3,'2022-12-01'),(26,2,1,1,'2022-12-03');
 
 DROP TABLE IF EXISTS tours;
 
@@ -51,3 +40,17 @@ CREATE TABLE users (
 
 INSERT INTO users VALUES (1,'user1','user1@ffhs.ch','123456');
 INSERT INTO users VALUES (2,'user2','user2@ffhs.ch','123456');
+--
+DROP TABLE IF EXISTS bookings;
+CREATE TABLE IF NOT EXISTS bookings (
+                                        b_id SERIAL  NOT NULL  PRIMARY KEY ,
+                                        t_id int NOT NULL,
+                                        u_id int NOT NULL,
+                                        b_quantity int NOT NULL,
+                                        b_date varchar(450) NOT NULL
+) ;
+
+ALTER TABLE bookings ADD CONSTRAINT fk_Booking_user_id FOREIGN KEY (u_id) REFERENCES users (id);
+ALTER TABLE bookings ADD CONSTRAINT fk_Booking_tour_id FOREIGN KEY (t_id) REFERENCES tours (id);
+
+INSERT INTO bookings VALUES (25,3,1,3,'2022-12-01'),(26,2,1,1,'2022-12-03');

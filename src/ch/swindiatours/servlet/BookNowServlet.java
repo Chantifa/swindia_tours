@@ -2,9 +2,9 @@ package ch.swindiatours.servlet;
 
 import ch.swindiatours.connection.DbCon;
 import ch.swindiatours.dao.BookingDao;
-import ch.swindiatours.model.Booking;
-import ch.swindiatours.model.Cart;
-import ch.swindiatours.model.User;
+import ch.swindiatours.Entities.Booking;
+import ch.swindiatours.Entities.Cart;
+import ch.swindiatours.Entities.User;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

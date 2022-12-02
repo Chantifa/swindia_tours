@@ -2,7 +2,7 @@ package ch.swindiatours.servlet;
 
 import ch.swindiatours.connection.DbCon;
 import ch.swindiatours.dao.UserDao;
-import ch.swindiatours.model.User;
+import ch.swindiatours.Entities.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -45,7 +45,6 @@ public class RegisterServlet extends HttpServlet {
         try {
             UserDao userDao = new UserDao(DbCon.getConnection());
 
-            user.setId(userDao.getLastUserIdPlusOne());
             user.setPassword(pwd);
             user.setName(name);
             user.setEmail(email);

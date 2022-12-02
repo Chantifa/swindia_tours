@@ -1,8 +1,9 @@
 package ch.swindiatours.dao;
 
-import ch.swindiatours.model.User;
+import ch.swindiatours.Entities.User;
 
 import java.sql.*;
+
 
 public class UserDao {
     private final Connection con;
