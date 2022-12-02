@@ -16,7 +16,7 @@
 	if (auth != null) {
 	    request.setAttribute("person", auth);
 	    BookingDao bookingDao  = new BookingDao(DbCon.getConnection());
-		booking = bookingDao.userBookings(auth.getId());
+		booking = bookingDao.getUserBookings(auth.getId());
 	}else{
 		response.sendRedirect("login.jsp");
 	}
@@ -56,7 +56,7 @@
 						<td><%=b.getDate() %></td>
 						<td><%=b.getName() %></td>
 						<td><%=b.getDescription() %></td>
-						<td><%=b.getQunatity() %></td>
+						<td><%=b.getQuantity() %></td>
 						<td><%=dcf.format(b.getPrice()) %></td>
 						<td><a class="btn btn-sm btn-danger" href="cancel-booking?id=<%=b.getBookingId()%>">Cancel Booking</a></td>
 					</tr>
