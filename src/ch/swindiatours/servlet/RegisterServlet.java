@@ -45,7 +45,6 @@ public class RegisterServlet extends HttpServlet {
         try {
             UserDao userDao = new UserDao(DbCon.getConnection());
 
-            user.setId(userDao.getLastUserIdPlusOne());
             user.setPassword(pwd);
             user.setName(name);
             user.setEmail(email);

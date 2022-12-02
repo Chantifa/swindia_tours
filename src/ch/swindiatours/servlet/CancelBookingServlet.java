@@ -17,7 +17,7 @@ public class CancelBookingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
             if (id != null) {
@@ -25,9 +25,8 @@ public class CancelBookingServlet extends HttpServlet {
                 bookingDao.cancelBooking(Integer.parseInt(id));
             }
             response.sendRedirect("bookings.jsp");
-        } catch (ClassNotFoundException | SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

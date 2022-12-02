@@ -29,7 +29,7 @@
 %>
 <p><%= bookingString %>
         <% BookingDao bookingDao = new BookingDao(DbCon.getConnection());
-          List<Booking> bookings = bookingDao.userBookings(user.getId());
+          List<Booking> bookings = bookingDao.getUserBookings(user.getId());
           while (bookings.iterator().hasNext())   {
              Booking b = bookings.iterator().next();
           }

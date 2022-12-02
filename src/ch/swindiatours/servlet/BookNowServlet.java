@@ -39,7 +39,7 @@ public class BookNowServlet extends HttpServlet {
                 Booking booking = new Booking();
                 booking.setTourId(Integer.parseInt(tourId));
                 booking.setUid(auth.getId());
-                booking.setQunatity(tourQuantiy);
+                booking.setQuantity(tourQuantiy);
                 booking.setDate(formatter.format(date));
 
                 BookingDao bookingDao = new BookingDao(DbCon.getConnection());

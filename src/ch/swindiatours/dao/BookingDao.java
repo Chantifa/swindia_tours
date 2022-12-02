@@ -23,14 +23,16 @@ public class BookingDao {
     public boolean insertBooking(Booking model) {
         boolean result = false;
         try {
-            query = "insert into bookings (b_id,t_id, u_id, b_quantity, b_date) values(?,?,?,?)";
+            query = "insert into bookings (b_id, t_id, u_id, b_quantity, b_date) values(?,? ,?,?,?)";
             pst = this.con.prepareStatement(query);
-            pst.setInt(1,model.getId());
-            pst.setInt(2, model.getUid());
-            pst.setInt(3, model.getQunatity());
-            pst.setString(4, model.getDate());
+            pst.setInt(1,model.getBookingId());
+            pst.setInt(2,model.getId());
+            pst.setInt(3, model.getUid());
+            pst.setInt(4, model.getQuantity());
+            pst.setString(5, model.getDate());
             pst.executeUpdate();
             result = true;
+            System.out.println("I am here");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -38,30 +40,31 @@ public class BookingDao {
     }
 
 
-    public List<Booking> userBookings(int id) {
+    public List<Booking> getUserBookings(int userId) {
         List<Booking> list = new ArrayList<>();
         try {
             query = "select * from bookings where u_id=? order by bookings.b_id desc";
             pst = this.con.prepareStatement(query);
-            pst.setInt(1, id);
+            pst.setInt(1, userId);
+
             rs = pst.executeQuery();
             while (rs.next()) {
-                Booking booking = new Booking();
                 TourDao tourDao = new TourDao(this.con);
                 int tourId = rs.getInt("t_id");
                 Tour tour = tourDao.getSingleTour(tourId);
-                booking.setBookingId(booking.getBookingId());
+
+                Booking booking = new Booking();
+                booking.setBookingId(rs.getInt("b_id"));
                 booking.setTourId(tourId);
                 booking.setName(tour.getName());
                 booking.setDescription(tour.getDescription());
                 booking.setPrice(tour.getPrice() * rs.getInt("b_quantity"));
-                booking.setQunatity(rs.getInt("b_quantity"));
+                booking.setQuantity(rs.getInt("b_quantity"));
                 booking.setDate(rs.getString("b_date"));
                 list.add(booking);
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
         }
         return list;
     }
@@ -75,8 +78,7 @@ public class BookingDao {
             pst.execute();
             //result = true;
         } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.print(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 }

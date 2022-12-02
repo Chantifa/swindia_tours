@@ -43,6 +43,8 @@ public class UserDao {
                     user= new User();
                     user.setName(rs.getString("name"));
                     user.setEmail(rs.getString("email"));
+                    user.setId(rs.getInt("id"));
+                    System.out.println("here ist der user mit id"+user.getId());
                 }
             }
             catch (SQLException e) {

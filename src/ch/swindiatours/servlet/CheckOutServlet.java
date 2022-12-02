@@ -35,11 +35,12 @@ public class CheckOutServlet extends HttpServlet {
                     booking.setBookingId(c.getId());
                     booking.setTourId(c.getId());
                     booking.setUid(auth.getId());
-                    booking.setQunatity(c.getQuantity());
+                    booking.setQuantity(c.getQuantity());
                     booking.setDate(formatter.format(date));
 
                     BookingDao bDao = new BookingDao(DbCon.getConnection());
                     boolean result = bDao.insertBooking(booking);
+                    System.out.println(result);
                     if (!result) break;
                 }
                 cart_list.clear();
