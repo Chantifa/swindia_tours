@@ -61,10 +61,6 @@ public class BookNowServlet extends HttpServlet {
             } else {
                 response.sendRedirect("login.jsp");
             }
-
-        } catch (ClassNotFoundException | SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 
