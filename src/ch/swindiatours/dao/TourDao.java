@@ -34,7 +34,7 @@ public class TourDao {
 
             while (rs.next()) {
                 Tour row = new Tour();
-                row.setId(rs.getInt("id"));
+                row.setTourId(rs.getInt("id"));
                 row.setName(rs.getString("name"));
                 row.setDescription(rs.getString("description"));
                 row.setPrice(rs.getDouble("price"));
@@ -50,7 +50,7 @@ public class TourDao {
         }
         return book;
     }
-    public Tour getSingleProduct(int id) {
+    public Tour getSingleTour(int id) {
         Tour row = null;
         try {
             query = "select * from swindiatours.public.tours where id=? ";
@@ -61,7 +61,7 @@ public class TourDao {
 
             while (rs.next()) {
                 row = new Tour();
-                row.setId(rs.getInt("id"));
+                row.setTourId(rs.getInt("id"));
                 row.setName(rs.getString("name"));
                 row.setDescription(rs.getString("description"));
                 row.setPrice(rs.getDouble("price"));
@@ -110,7 +110,7 @@ public class TourDao {
                     rs = pst.executeQuery();
                     while (rs.next()) {
                         Cart row = new Cart();
-                        row.setId(rs.getInt("id"));
+                        row.setTourId(rs.getInt("id"));
                         row.setName(rs.getString("name"));
                         row.setDescription(rs.getString("description"));
                         row.setPrice(rs.getDouble("price")*item.getQuantity());

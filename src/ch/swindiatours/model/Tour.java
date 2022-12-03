@@ -20,12 +20,11 @@ public class Tour {
         this.image = image;
     }
 
-
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setTourId(int id) {
         this.id = id;
     }
 
@@ -66,5 +65,4 @@ public class Tour {
         return "Tour [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", image="
                 + image + "]";
     }
-
 }

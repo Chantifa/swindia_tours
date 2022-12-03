@@ -2,10 +2,7 @@ package ch.swindiatours.dao;
 
 import ch.swindiatours.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDao {
     private final Connection con;
@@ -44,9 +41,10 @@ public class UserDao {
                 rs = pst.executeQuery();
                 if(rs.next()){
                     user= new User();
-                    user.setId(rs.getInt("id"));
                     user.setName(rs.getString("name"));
-                    user.setName(rs.getString("email"));
+                    user.setEmail(rs.getString("email"));
+                    user.setId(rs.getInt("id"));
+                    System.out.println("here ist der user mit id"+user.getId());
                 }
             }
             catch (SQLException e) {
@@ -54,5 +52,4 @@ public class UserDao {
             }
             return user;
         }
-
 }

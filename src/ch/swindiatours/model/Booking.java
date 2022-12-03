@@ -3,31 +3,31 @@ package ch.swindiatours.model;
 public class Booking extends Tour {
     private int bookingId;
     private int uid;
-    private int qunatity;
+    private int quantity;
     private String date;
 
     public Booking() {
     }
 
-    public Booking(int bookingId, int uid, int qunatity, String date) {
+    public Booking(int bookingId, int uid, int quantity, String date) {
         super();
         this.bookingId = bookingId;
         this.uid = uid;
-        this.qunatity = qunatity;
+        this.quantity = quantity;
         this.date = date;
     }
 
-    public Booking(int uid, int qunatity, String date) {
+    public Booking(int uid, int quantity, String date) {
         super();
         this.uid = uid;
-        this.qunatity = qunatity;
+        this.quantity = quantity;
         this.date = date;
     }
 
     public int getBookingId() {
         return bookingId;
     }
-    public void setBookingId(int orderId) {
+    public void setBookingId(int bookingId) {
         this.bookingId = bookingId;
     }
 
@@ -39,11 +39,11 @@ public class Booking extends Tour {
         this.uid = uid;
     }
 
-    public int getQunatity() {
-        return qunatity;
+    public int getQuantity() {
+        return quantity;
     }
-    public void setQunatity(int qunatity) {
-        this.qunatity = qunatity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     public String getDate() {
         return date;
@@ -51,4 +51,5 @@ public class Booking extends Tour {
     public void setDate(String date) {
         this.date = date;
     }
+
 }
