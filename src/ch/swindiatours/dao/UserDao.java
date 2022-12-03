@@ -18,12 +18,11 @@ public class UserDao {
         public boolean userRegister(User user){
             boolean result = false;
             try {
-                query = "insert into swindiatours.public.users (id, name, email, password) values(?,?,?,?)";
+                query = "insert into swindiatours.public.users ( name, email, password) values(?,?,?)";
                 pst = this.con.prepareStatement(query);
-                pst.setInt(1, user.getId());
-                pst.setString(2, user.getName());
-                pst.setString(3, user.getEmail());
-                pst.setString(4, user.getPassword());
+                pst.setString(1, user.getName());
+                pst.setString(2, user.getEmail());
+                pst.setString(3, user.getPassword());
                 pst.executeUpdate();
                 result = true;
             } catch (SQLException e) {
