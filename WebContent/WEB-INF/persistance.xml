@@ -5,9 +5,9 @@
              version="3.0">
     <persistence-unit name="swindiatours">
         <jta-data-source>jdbc/swindiatours</jta-data-source>
-        <class>ch.swindiatours.Entities.Booking</class>
-        <class>ch.swindiatours.Entities.Tour</class>
-        <class>ch.swindiatours.Entities.User</class>
+        <class>ch.swindiatours.Model.Booking</class>
+        <class>ch.swindiatours.Model.Tour</class>
+        <class>ch.swindiatours.Model.User</class>
         <properties>
                 <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
                 <property name="jakarta.persistence.sql-load-script-source" value="/database/DDL.sql"/>

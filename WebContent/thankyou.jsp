@@ -1,9 +1,11 @@
 <%@ page import="java.util.Date" %>
-<%@ page import="ch.swindiatours.Entities.User" %>
-<%@ page import="ch.swindiatours.Entities.Booking" %>
+<%@ page import="ch.swindiatours.Model.User" %>
+<%@ page import="ch.swindiatours.Model.Booking" %>
 <%@ page import="ch.swindiatours.dao.BookingDao" %>
-<%@ page import="ch.swindiatours.connection.DbCon" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="jakarta.persistence.EntityManagerFactory" %>
+<%@ page import="jakarta.persistence.Persistence" %>
+<%@ page import="jakarta.persistence.EntityManager" %><%--
   Created by IntelliJ IDEA.
   User: chant
   Date: 30/11/2022
@@ -28,7 +30,9 @@
     String bookingString = booking.toString();
 %>
 <p><%= bookingString %>
-        <% BookingDao bookingDao = new BookingDao(DbCon.getConnection());
+    <%EntityManagerFactory emf = Persistence.createEntityManagerFactory("swindiatours");
+    EntityManager em = emf.createEntityManager();%>
+        <% BookingDao bookingDao = new BookingDao(em);
           List<Booking> bookings = bookingDao.userBookings(user.getId());
           while (bookings.iterator().hasNext())   {
              Booking b = bookings.iterator().next();

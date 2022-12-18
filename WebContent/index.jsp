@@ -1,9 +1,9 @@
 <%@page import="java.util.*"%>
-<%@ page import="ch.swindiatours.Entities.Tour" %>
-<%@ page import="ch.swindiatours.Entities.Cart" %>
+<%@ page import="ch.swindiatours.Model.Tour" %>
+<%@ page import="ch.swindiatours.Model.Cart" %>
 <%@ page import="ch.swindiatours.dao.TourDao" %>
 <%@ page import="ch.swindiatours.connection.DbCon" %>
-<%@ page import="ch.swindiatours.Entities.User" %>
+<%@ page import="ch.swindiatours.Model.User" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 

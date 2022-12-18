@@ -1,11 +1,11 @@
 <%@page import="ch.swindiatours.connection.DbCon" %>
 <%@page import="java.util.*" %>
 <%@page import="java.text.DecimalFormat" %>
-<%@ page import="ch.swindiatours.Entities.Cart" %>
-<%@ page import="ch.swindiatours.Entities.User" %>
-<%@ page import="ch.swindiatours.Entities.Cart" %>
+<%@ page import="ch.swindiatours.Model.Cart" %>
+<%@ page import="ch.swindiatours.Model.User" %>
+<%@ page import="ch.swindiatours.Model.Cart" %>
 <%@ page import="ch.swindiatours.dao.TourDao" %>
-<%@ page import="ch.swindiatours.Entities.Tour" %>
+<%@ page import="ch.swindiatours.Model.Tour" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <%

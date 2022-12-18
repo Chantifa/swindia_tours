@@ -1,5 +1,5 @@
-<%@ page import="ch.swindiatours.Entities.User" %>
-<%@ page import="ch.swindiatours.Entities.Cart" %>
+<%@ page import="ch.swindiatours.Model.User" %>
+<%@ page import="ch.swindiatours.Model.Cart" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%

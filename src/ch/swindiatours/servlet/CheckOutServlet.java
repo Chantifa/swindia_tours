@@ -1,10 +1,12 @@
 package ch.swindiatours.servlet;
 
-import ch.swindiatours.connection.DbCon;
 import ch.swindiatours.dao.BookingDao;
-import ch.swindiatours.Entities.Booking;
-import ch.swindiatours.Entities.Cart;
-import ch.swindiatours.Entities.User;
+import ch.swindiatours.Model.Booking;
+import ch.swindiatours.Model.Cart;
+import ch.swindiatours.Model.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,8 +38,9 @@ public class CheckOutServlet extends HttpServlet {
                     booking.setUid(auth.getId());
                     booking.setQunatity(c.getQuantity());
                     booking.setDate(formatter.format(date));
-
-                    BookingDao bDao = new BookingDao(DbCon.getConnection());
+                    EntityManagerFactory emf = Persistence.createEntityManagerFactory("swindiatours");
+                    EntityManager em = emf.createEntityManager();
+                    BookingDao bDao = new BookingDao(em);
                     boolean result = bDao.insertBooking(booking);
                     if (!result) break;
                 }
@@ -50,9 +52,6 @@ public class CheckOutServlet extends HttpServlet {
                 }
                 response.sendRedirect("cart.jsp");
             }
-        } catch (ClassNotFoundException | SQLException e) {
-
-            e.printStackTrace();
         }
     }
 

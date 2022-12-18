@@ -1,6 +1,6 @@
 package ch.swindiatours.services;
 
-import ch.swindiatours.Entities.User;
+import ch.swindiatours.Model.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 

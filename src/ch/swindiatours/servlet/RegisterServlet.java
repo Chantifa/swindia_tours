@@ -2,7 +2,10 @@ package ch.swindiatours.servlet;
 
 import ch.swindiatours.connection.DbCon;
 import ch.swindiatours.dao.UserDao;
-import ch.swindiatours.Entities.User;
+import ch.swindiatours.Model.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +16,6 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
-import java.sql.SQLException;
 import java.util.Objects;
 
 @WebServlet(name = "register", value = "/register")
@@ -42,24 +44,20 @@ public class RegisterServlet extends HttpServlet {
         final String repeadpwd = request.getParameter("repeatepassword");
 
         User user = new User();
-        try {
-            UserDao userDao = new UserDao(DbCon.getConnection());
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("swindiatours");
+        EntityManager em = emf.createEntityManager();
+            UserDao userDao = new UserDao(em);
 
             user.setPassword(pwd);
             user.setName(name);
             user.setEmail(email);
 
             boolean result = userDao.userRegister(user);
-            if(result){
+            if (result) {
                 response.sendRedirect("login.jsp");
+            } else {
+                out.println("register failed");
             }
-            else {
-                    out.println("register failed");
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
-        }
-
 
         // Check if password repeat is correct
         if (!(name.isEmpty() || email.isEmpty() ||

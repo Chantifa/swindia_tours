@@ -1,6 +1,6 @@
 package ch.swindiatours.servlet;
 
-import ch.swindiatours.Entities.Cart;
+import ch.swindiatours.Model.Cart;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

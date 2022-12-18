@@ -1,10 +1,12 @@
 package ch.swindiatours.servlet;
 
-import ch.swindiatours.connection.DbCon;
+import ch.swindiatours.Model.Booking;
+import ch.swindiatours.Model.Cart;
+import ch.swindiatours.Model.User;
 import ch.swindiatours.dao.BookingDao;
-import ch.swindiatours.Entities.Booking;
-import ch.swindiatours.Entities.Cart;
-import ch.swindiatours.Entities.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
+import java.io.Serial;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +22,7 @@ import java.util.Date;
 
 @WebServlet("/book-now")
 public class BookNowServlet extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -41,15 +44,16 @@ public class BookNowServlet extends HttpServlet {
                 booking.setUid(auth.getId());
                 booking.setQunatity(tourQuantiy);
                 booking.setDate(formatter.format(date));
-
-                BookingDao bookingDao = new BookingDao(DbCon.getConnection());
+                EntityManagerFactory emf = Persistence.createEntityManagerFactory("swindiatours");
+                EntityManager em = emf.createEntityManager();
+                BookingDao bookingDao = new BookingDao(em);
                 boolean result = bookingDao.insertBooking(booking);
                 if (result) {
                     ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
                     if (cart_list != null) {
                         for (Cart c : cart_list) {
                             if (c.getId() == Integer.parseInt(tourId)) {
-                                cart_list.remove(cart_list.indexOf(c));
+                                cart_list.remove(c);
                                 break;
                             }
                         }
@@ -61,10 +65,6 @@ public class BookNowServlet extends HttpServlet {
             } else {
                 response.sendRedirect("login.jsp");
             }
-
-        } catch (ClassNotFoundException | SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 

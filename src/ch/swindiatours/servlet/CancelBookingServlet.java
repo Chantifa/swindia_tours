@@ -2,6 +2,9 @@ package ch.swindiatours.servlet;
 
 import ch.swindiatours.connection.DbCon;
 import ch.swindiatours.dao.BookingDao;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,13 +24,12 @@ public class CancelBookingServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
             if (id != null) {
-                BookingDao bookingDao = new BookingDao(DbCon.getConnection());
+                EntityManagerFactory emf = Persistence.createEntityManagerFactory("swindiatours");
+                EntityManager em = emf.createEntityManager();
+                BookingDao bookingDao = new BookingDao(em);
                 bookingDao.cancelBooking(Integer.parseInt(id));
             }
             response.sendRedirect("bookings.jsp");
-        } catch (ClassNotFoundException | SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 
